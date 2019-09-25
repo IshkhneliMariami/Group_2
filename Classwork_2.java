@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Main
 {
@@ -85,14 +86,65 @@ public class Main
             System.out.print(i + " ");
         }
         
-  //9 
-  
-  //11მასივში შემთხვევითი რიცხვები
+  //9 მასივში უმცირესი, უდიდესი
+    int [] array = {3,21,7,17,31,44,112,12331};    
+    int minimum = array[0];
+    int maximum = array[0];
+    for(int i=1;i < array.length;i++){
+        if(array[i] > maximum){
+	      maximum = array[i];
+	    }
+      }
+      for (int t=0; t < array.length; t++) {
+          if(array[t] < minimum) {
+              minimum = array[t];
+          }
+      }
+      System.out.println("maximum = " + maximum);
+      System.out.println("minimum = " + minimum);
+	 
+  //10 მასივი ზრდადობით
+    int [] array = {3,21,7,17,31,44,112,12331};
+    for (int i = 1; i < array.length; i++) {
+      for (int t = i; t> 0; t--) {
+        if (array[t] < array[t - 1]) {
+          int n = array[t];
+          array[t] = array[t - 1];
+          array[t- 1] = n;
+        }
+      }
+    }
+    for(int i=0; i < array.length; i++){
+        System.out.print(array[i]+" ");
+    }
+	
+
+  //11 მასივში შემთხვევითი რიცხვები
        int[] my_arr = new int[8];
        for (int i = 0; i < 8; i++) {
             my_arr[i] = (int) (Math.random() * 1999);
         }
         System.out.println(Arrays.toString(my_arr));
+	 
+	 
+   //12 მასივში შემთხვევითი რიცხვები კლებადობით
+      int[] array = new int[8];
+      for(int i = 0; i < array.length; i++) {
+          array[i] = (int) (Math.random() * 1999);
+      }
+         int t;
+         for (int i = 1; i < array.length; i++) {
+              for (int j = i; j > 0; j--) {
+                  if (array[j] > array [j - 1]) {
+                  t = array[j];
+                  array[j] = array[j - 1];
+                  array[j - 1] = t;
+            }
+         }
+       }
+         for(int i=0; i < array.length; i++){
+             System.out.print(array[i] + " ");
+    }
         
 	}
 }
